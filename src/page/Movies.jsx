@@ -6,6 +6,7 @@ import { IoSearch } from "react-icons/io5";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { CgProfile } from "react-icons/cg";
 import { FaPlay } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 
 const Movies = () => {
   var settings = {
@@ -28,6 +29,7 @@ const Movies = () => {
   if (error) return "have not any data";
   
   const bgImage = data[0].video;
+
   return (
     <div className="bg-[#141414] w-full min-h-screen">
       <div
@@ -75,13 +77,13 @@ const Movies = () => {
             {data[0].description}
           </p>
           <div>
-            <button className="rounded inline-flex items-center p-2 px-4 font-bold bg-white text-black mr-5">
+            <NavLink to={`/detail/${data[0].id}`} className="rounded inline-flex items-center p-2 px-4 font-bold bg-white text-black mr-5">
               <FaPlay className="mr-4" />
               Oynat
-            </button>
-            <button className="rounded inline-block p-2 px-4 font-bold bg-[#00000050] text-white mr-5">
+            </NavLink>
+            <NavLink className="rounded inline-block p-2 px-4 font-bold bg-[#00000050] text-white mr-5">
               Daha fazla bilgi
-            </button>
+            </NavLink>
           </div>
         </div>
       </div>
@@ -91,7 +93,7 @@ const Movies = () => {
           <Slider {...settings}>
             {data &&
               data?.map((item) => (
-                <div key={item.id} className=" card ml-5">
+                <NavLink to={`/detail/${item.id}`} key={item.id} className=" card ml-5">
                   <div className="relative transition-all w-[90%] h-[122px]">
                     <img
                       className="w-full rounded h-full object-cover"
@@ -103,16 +105,16 @@ const Movies = () => {
                       <h3 className="text-white mt-3">{item.name}</h3>
                     </div>
                   </div>
-                </div>
+                </NavLink>
               ))}
           </Slider>
         </div>
-        <div className="mycontainer py-5">
+        {/* <div className="mycontainer py-5">
           <h2 className="text-white text-[20px] font-bold mb-4">Belgeseller</h2>
           <Slider {...settings}>
             {data &&
               data?.map((item) => (
-                <div key={item.id} className="card ml-5">
+                <NavLink to={`/detail/${item.id}`} key={item.id} className="card ml-5">
                   <div className="relative transition-all w-[90%] h-[122px]">
                     <img
                       className="w-full rounded h-full object-cover"
@@ -124,7 +126,7 @@ const Movies = () => {
                       <h3 className="text-white mt-3">{item.name}</h3>
                     </div>
                   </div>
-                </div>
+                </NavLink>
               ))}
           </Slider>
         </div>
@@ -133,7 +135,7 @@ const Movies = () => {
           <Slider {...settings}>
             {data &&
               data?.map((item) => (
-                <div key={item.id} className="card ml-5">
+               <NavLink to={`/detail/${item.id}`} key={item.id} className="card ml-5">
                   <div className="relative transition-all w-[90%] h-[122px]">
                     <img
                       className="w-full rounded h-full object-cover"
@@ -145,10 +147,10 @@ const Movies = () => {
                       <h3 className="text-white mt-3">{item.name}</h3>
                     </div>
                   </div>
-                </div>
+                </NavLink>
               ))}
           </Slider>
-        </div>
+        </div> */}
     </div>
   );
 };

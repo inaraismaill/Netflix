@@ -4,6 +4,7 @@ import Login from "../page/Login";
 import Register from "../page/Register";
 import Movies from "../page/Movies";
 import { useSelector } from "react-redux";
+import Detail from "../page/Detail";
 
 const AppRouter = () => {
   const login = useSelector((state) => state.login.value);
@@ -14,6 +15,7 @@ const AppRouter = () => {
           <Route exact path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Register />} />
+          <Route path="/detail/:id" element={<Detail />} />
           {login ? (
             <Route path="/movies" element={<Movies />} />
           ) : (
