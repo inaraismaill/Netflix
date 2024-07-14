@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+// import { useQuery } from "@tanstack/react-query";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
@@ -7,6 +7,7 @@ import { IoMdNotificationsOutline } from "react-icons/io";
 import { CgProfile } from "react-icons/cg";
 import { FaPlay } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import data from "../data";
 
 const Movies = () => {
   var settings = {
@@ -17,18 +18,20 @@ const Movies = () => {
     slidesToScroll: 1,
   };
 
-  const { isLoading, error, data } = useQuery({
-    queryKey: ["repoData"],
-    queryFn: () =>
-      fetch("http://localhost:3000/movies").then((res) => res.json()),
-    retry: false,
-  });
+  // const { isLoading, error, data } = useQuery({
+  //   queryKey: ["repoData"],
+  //   queryFn: () =>
+  //     fetch("http://localhost:3000/movies").then((res) => res.json()),
+  //   retry: false,
+  // });
 
-  if (isLoading) return "Loading...";
+  // if (isLoading) return "Loading...";
 
-  if (error) return "have not any data";
-  
-  const bgImage = data[0].video;
+  // if (error) return "have not any data";
+
+  const movieData = data.movies;
+
+  const bgImage = movieData[0].video;
 
   return (
     <div className="bg-[#141414] w-full min-h-screen">
@@ -71,13 +74,16 @@ const Movies = () => {
         </header>
         <div className="mycontainer h-[70%] flex justify-end flex-col">
           <h1 className="font-bold text-[25px] sm:text-[34px]">
-            {data[0].name}
+            {movieData[0].name}
           </h1>
           <p className="text-bold sm:text-[18px] my-5 text-[15px]">
-            {data[0].description}
+            {movieData[0].description}
           </p>
           <div>
-            <NavLink to={`/detail/${data[0].id}`} className="rounded inline-flex items-center p-2 px-4 font-bold bg-white text-black mr-5">
+            <NavLink
+              to={`/movie/${movieData[0].id}`}
+              className="rounded inline-flex items-center p-2 px-4 font-bold bg-white text-black mr-5"
+            >
               <FaPlay className="mr-4" />
               Oynat
             </NavLink>
@@ -89,68 +95,34 @@ const Movies = () => {
       </div>
 
       <div className="mycontainer py-5">
-          <h2 className="text-white text-[20px] font-bold mb-4">Animasyon</h2>
-          <Slider {...settings}>
-            {data &&
-              data?.map((item) => (
-                <NavLink to={`/detail/${item.id}`} key={item.id} className=" card ml-5">
-                  <div className="relative transition-all w-[90%] h-[122px]">
+        <h2 className="text-white text-[20px] font-bold mb-4">Animasyon</h2>
+        <Slider {...settings}>
+          {movieData &&
+            movieData?.map((item) => (
+              <NavLink
+                to={`/movie/${item.id}`}
+                key={item.id}
+                className=" card ml-5"
+              >
+                <div className="relative transition-all w-[90%] h-[122px]">
+                  <img
+                    className="w-full rounded h-full object-cover"
+                    src={item.poster}
+                    alt=""
+                  />
+                  <div className="absolute rounded bg-slate-800 p-5 transition-all opacity-0 hover:opacity-100 top-0">
                     <img
-                      className="w-full rounded h-full object-cover"
-                      src={item.poster}
+                      className="h-full rounded w-full"
+                      src={item.video}
                       alt=""
                     />
-                    <div className="absolute rounded bg-slate-800 p-5 transition-all opacity-0 hover:opacity-100 top-0">
-                      <img className="h-full rounded w-full" src={item.video} alt="" />
-                      <h3 className="text-white mt-3">{item.name}</h3>
-                    </div>
+                    <h3 className="text-white mt-3">{item.name}</h3>
                   </div>
-                </NavLink>
-              ))}
-          </Slider>
-        </div>
-        {/* <div className="mycontainer py-5">
-          <h2 className="text-white text-[20px] font-bold mb-4">Belgeseller</h2>
-          <Slider {...settings}>
-            {data &&
-              data?.map((item) => (
-                <NavLink to={`/detail/${item.id}`} key={item.id} className="card ml-5">
-                  <div className="relative transition-all w-[90%] h-[122px]">
-                    <img
-                      className="w-full rounded h-full object-cover"
-                      src={item.poster}
-                      alt=""
-                    />
-                    <div className="absolute rounded bg-slate-800 p-5 transition-all opacity-0 hover:opacity-100 top-0">
-                      <img className="h-full rounded w-full" src={item.video} alt="" />
-                      <h3 className="text-white mt-3">{item.name}</h3>
-                    </div>
-                  </div>
-                </NavLink>
-              ))}
-          </Slider>
-        </div>
-        <div className="mycontainer py-5">
-          <h2 className="text-white text-[20px] font-bold mb-4">Komedi</h2>
-          <Slider {...settings}>
-            {data &&
-              data?.map((item) => (
-               <NavLink to={`/detail/${item.id}`} key={item.id} className="card ml-5">
-                  <div className="relative transition-all w-[90%] h-[122px]">
-                    <img
-                      className="w-full rounded h-full object-cover"
-                      src={item.poster}
-                      alt=""
-                    />
-                    <div className="absolute rounded bg-slate-800 p-5 transition-all opacity-0 hover:opacity-100 top-0">
-                      <img className="h-full rounded w-full" src={item.video} alt="" />
-                      <h3 className="text-white mt-3">{item.name}</h3>
-                    </div>
-                  </div>
-                </NavLink>
-              ))}
-          </Slider>
-        </div> */}
+                </div>
+              </NavLink>
+            ))}
+        </Slider>
+      </div>
     </div>
   );
 };

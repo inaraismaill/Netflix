@@ -1,15 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit'
-
+const initialState={
+  value: [
+    {
+      "password":"admin",
+      "email":"admin@gmail.com"
+    }
+  ],
+}
 export const mailSlice = createSlice({
   name: 'users',
-  initialState: {
-    value: [
-      {
-        "password":"admin",
-        "email":"admin@mail.com"
-      }
-    ],
-  },
+  initialState,
   reducers: {
     addNewUser: (state, action) => {
         state.value.push(action.payload)

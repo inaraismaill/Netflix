@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
-
+const initialState={
+  value:""
+}
 export const mailSlice = createSlice({
   name: 'mail',
-  initialState: {
-    value: "",
-  },
+  initialState,
   reducers: {
     addMail: (state, action) => {
         state.value = action.payload

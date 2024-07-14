@@ -7,23 +7,23 @@ const Footer = () => {
   return (
     <div>
       <div className="mycontainer py-[80px] text-white">
-      <div className="mb-5"><a className={navLink} href="#">Questions? Contact us.</a></div>
+      <div className="mb-5"><a className={navLink} href={"https://help.netflix.com/en/contactus"}>Questions? Contact us.</a></div>
         <div className="flex flex-wrap">
-          <div className={link}><a className={navLink} href="#">FAQ</a></div>
-          <div className={link}><a className={navLink} href="#">Help Center</a></div>
-          <div className={link}><a className={navLink} href="#">Account</a></div>
-          <div className={link}><a className={navLink} href="#">Media Center</a></div>
-          <div className={link}><a className={navLink} href="#">Investor Relations</a></div>
-          <div className={link}><a className={navLink} href="#">Jobs</a></div>
-          <div className={link}><a className={navLink} href="#">Ways to Watch</a></div>
-          <div className={link}><a className={navLink} href="#">Terms of Use</a></div>
-          <div className={link}><a className={navLink} href="#">Privacy</a></div>
-          <div className={link}><a className={navLink} href="#">Cookie Preferences</a></div>
-          <div className={link}><a className={navLink} href="#">Corporate Information</a></div>
-          <div className={link}><a className={navLink} href="#">Contact Us</a></div>
-          <div className={link}><a className={navLink} href="#">Speed Test</a></div>
-          <div className={link}><a className={navLink} href="#">Legal Notices</a></div>
-          <div className={link}><a className={navLink} href="#">Only on Netflix</a></div>
+          <div className={link}><a className={navLink} href={"https://help.netflix.com/en/node/412"}>FAQ</a></div>
+          <div className={link}><a className={navLink} href="https://help.netflix.com/en">Help Center</a></div>
+          <div className={link}><a className={navLink} href="/login">Account</a></div>
+          <div className={link}><a className={navLink} href="https://media.netflix.com/en/">Media Center</a></div>
+          <div className={link}><a className={navLink} href="https://ir.netflix.net/ir-overview/profile/default.aspx">Investor Relations</a></div>
+          <div className={link}><a className={navLink} href="https://jobs.netflix.com/">Jobs</a></div>
+          <div className={link}><a className={navLink} href="https://help.netflix.com/en/node/14361">Ways to Watch</a></div>
+          <div className={link}><a className={navLink} href="https://help.netflix.com/legal/termsofuse">Terms of Use</a></div>
+          <div className={link}><a className={navLink} href="https://help.netflix.com/legal/privacy">Privacy</a></div>
+          <div className={link}><a className={navLink} href="https://help.netflix.com/en/node/134094">Cookie Preferences</a></div>
+          <div className={link}><a className={navLink} href="https://help.netflix.com/en/node/134094">Corporate Information</a></div>
+          <div className={link}><a className={navLink} href="https://help.netflix.com/en/contactus">Contact Us</a></div>
+          <div className={link}><a className={navLink} href="https://fast.com/">Speed Test</a></div>
+          <div className={link}><a className={navLink} href="https://help.netflix.com/legal/notices">Legal Notices</a></div>
+          <div className={link}><a className={navLink} href="https://www.netflix.com/az/browse/genre/839338">Only on Netflix</a></div>
         </div>
       <div>
       <div className="justify-between border border-gray-400 p-1 sm:mr-[30px] my-5 rounded border-solid inline-block">
